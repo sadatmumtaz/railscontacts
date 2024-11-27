@@ -1,0 +1,49 @@
+ <% content_for :title, "Contacts" %> 
+
+<%# <h1>Contacts</h1> %>
+
+<%# <div id="contacts" > %>
+  <%# <% @contacts.each do |contact| %> 
+    <%# <%= render contact %> 
+    <%# <p> %>
+      <%# <%= link_to "Show this contact", contact %> 
+    <%# </p> %>
+  <%# <% end %>
+<%# </div> %>
+
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Contacts</h2>
+    <%= link_to "New contact", new_contact_path, class: "btn btn-primary" %>
+  </div>
+  <table class="table table-hover">
+    <thead class="thead-dark" style="background-color: #343a40;">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>User ID</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contacts.each do |contact| %>
+        <% if contact.user == current_user %>
+        <tr>
+          <td>
+            <%= link_to "#{contact.first_name} #{contact.last_name}", edit_contact_path(contact), class: "btn btn-link" %>
+          </td>
+          <td><%= contact.email %></td>
+          <td><%= contact.Phone_number %></td>
+          <td><%= contact.user_id %></td>
+          <td>
+            <%= button_to "Destroy", contact, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %> 
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

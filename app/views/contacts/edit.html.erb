@@ -1,0 +1,13 @@
+<% content_for :title, "Editing contact" %>
+
+<h1>Editing contact</h1>
+
+<%= render "form", contact: @contact %>
+
+<br>
+
+<div>
+  <%= link_to "Show this contact", @contact, class: "btn btn-primary btn-sm"%> 
+  <%= link_to "Back to contacts", contacts_path, class: "btn btn-dark btn-sm" %> 
+  <%= button_to "Destroy", @contact, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm", form: { class: "d-inline" } %>
+</div>

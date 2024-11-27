@@ -1,0 +1,13 @@
+<%= render @contact %>  
+
+<table class="table table-striped">
+  <tbody>
+      <tr>
+            <%= link_to "Edit this contact", edit_contact_path(@contact), class: "btn btn-primary btn-sm" %>
+            &nbsp;
+            <%= link_to "Back to contacts", contacts_path, class: "btn btn-secondary btn-sm" %>
+            &nbsp;
+            <%= button_to "Destroy", @contact, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+      </tr>
+  </tbody>
+</table>
